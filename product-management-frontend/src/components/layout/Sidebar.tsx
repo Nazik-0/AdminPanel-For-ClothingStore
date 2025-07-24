@@ -38,7 +38,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isCollapsed }) => {
     { name: 'Settings', href: '/settings', icon: Settings, roles: ['super_admin'] },
   ];
 
-  const filteredItems = navigationItems.filter(item => 
+  const filteredItems = navigationItems.filter(item =>                    
     user?.role && item.roles.includes(user.role)
   );
 

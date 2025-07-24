@@ -108,25 +108,6 @@ export const mockCustomers: Customer[] = [
   },
 ];
 
-export const mockCategories: Category[] = [
-  {
-    id: '1',
-    name: 'Clothing',
-    description: 'All types of clothing items',
-    image: 'https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?w=400',
-    status: 'active',
-    createdAt: '2024-01-01T00:00:00Z',
-  },
-  {
-    id: '2',
-    name: 'T-Shirts',
-    description: 'Casual and formal t-shirts',
-    parentId: '1',
-    status: 'active',
-    createdAt: '2024-01-01T00:00:00Z',
-  },
-];
-
 export const mockBrands: Brand[] = [
   {
     id: '1',
@@ -180,4 +161,65 @@ export const mockCategoryData = [
   { name: 'Jackets', value: 20, color: '#F97316' },
   { name: 'Shoes', value: 15, color: '#8B5CF6' },
   { name: 'Accessories', value: 5, color: '#EF4444' },
+];
+
+// Add to mockData.ts
+export const mockCategories: Category[] = [
+  {
+    id: 'cat1',
+    name: 'Men',
+    slug: 'men',
+    status: 'active',
+    productCount: 42,
+    createdAt: '2023-01-15',
+    updatedAt: '2023-06-20',
+  },
+  {
+    id: 'cat2',
+    name: 'Women',
+    slug: 'women',
+    status: 'active',
+    productCount: 36,
+    createdAt: '2023-01-15',
+    updatedAt: '2023-06-20',
+  },
+  {
+    id: 'cat3',
+    name: 'T-Shirts',
+    slug: 't-shirts',
+    parentId: 'cat1',
+    status: 'active',
+    productCount: 15,
+    createdAt: '2023-02-10',
+    updatedAt: '2023-05-15',
+  },
+  {
+    id: 'cat4',
+    name: 'Jeans',
+    slug: 'jeans',
+    parentId: 'cat1',
+    status: 'active',
+    productCount: 20,
+    createdAt: '2023-02-12',
+    updatedAt: '2023-06-01',
+  },
+  {
+    id: 'cat5',
+    name: 'Dresses',
+    slug: 'dresses',
+    parentId: 'cat2',
+    status: 'active',
+    productCount: 18,
+    createdAt: '2023-03-05',
+    updatedAt: '2023-06-18',
+  },
+  {
+    id: 'cat6',
+    name: 'Accessories',
+    slug: 'accessories',
+    status: 'inactive',
+    productCount: 0,
+    createdAt: '2023-04-22',
+    updatedAt: '2023-04-22',
+  },
 ];

@@ -51,3 +51,20 @@ export const CardTitle: React.FC<CardTitleProps> = ({ children, className }) => 
     {children}
   </h3>
 );
+
+interface CardContentProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+export const CardContent: React.FC<CardContentProps> = ({ 
+  children, 
+  className 
+}) => (
+  <div className={clsx(
+    'text-gray-700 dark:text-gray-300',
+    className
+  )}>
+    {children}
+  </div>
+);

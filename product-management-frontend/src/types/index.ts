@@ -77,15 +77,6 @@ export interface Customer {
   lastLogin?: string;
 }
 
-export interface Category {
-  id: string;
-  name: string;
-  description: string;
-  parentId?: string;
-  image?: string;
-  status: 'active' | 'inactive';
-  createdAt: string;
-}
 
 export interface Brand {
   id: string;
@@ -111,4 +102,23 @@ export interface ActivityLog {
   action: string;
   details: string;
   timestamp: string;
+}
+
+// Add to existing types
+export type CategoryStatus = 'active' | 'inactive';
+
+export interface Category {
+  id: string;
+  name: string;
+  slug: string;
+  description?: string;
+  parentId?: string | null;
+  children?: Category[];
+  status: CategoryStatus;
+  image?: string;
+  productCount: number;
+  metaTitle?: string;
+  metaDescription?: string;
+  createdAt: string;
+  updatedAt: string;
 }
