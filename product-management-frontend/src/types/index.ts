@@ -82,9 +82,11 @@ export interface Brand {
   id: string;
   name: string;
   description: string;
-  logo?: string;
+  logo: string;
   status: 'active' | 'inactive';
   createdAt: string;
+  productsCount?: number;
+  lastUpdated?: string;
 }
 
 export interface DashboardStats {

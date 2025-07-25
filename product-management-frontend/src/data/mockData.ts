@@ -116,8 +116,40 @@ export const mockBrands: Brand[] = [
     logo: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?w=400',
     status: 'active',
     createdAt: '2024-01-01T00:00:00Z',
+    lastUpdated: '2024-06-15T14:30:00Z',
+    productsCount: 1
+  },
+  {
+    id: '2',
+    name: 'UrbanStyle',
+    description: 'Modern urban fashion',
+    logo: 'https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?w=400',
+    status: 'active',
+    createdAt: '2024-01-05T00:00:00Z',
+    lastUpdated: '2024-06-10T09:15:00Z',
+    productsCount: 1
+  },
+  {
+    id: '3',
+    name: 'DenimCo',
+    description: 'Specialists in premium denim',
+    logo: 'https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?w=400',
+    status: 'inactive',
+    createdAt: '2024-02-10T00:00:00Z',
+    lastUpdated: '2024-05-22T16:45:00Z',
+    productsCount: 0
   },
 ];
+
+export const brandStats = {
+  totalBrands: 24,
+  activeBrands: 18,
+  topBrands: [
+    { name: 'ComfortWear', productCount: 42 },
+    { name: 'UrbanStyle', productCount: 38 },
+    { name: 'DenimCo', productCount: 25 }
+  ]
+};
 
 export const mockDashboardStats: DashboardStats = {
   todaySales: 2845.67,
@@ -223,3 +255,4 @@ export const mockCategories: Category[] = [
     updatedAt: '2023-04-22',
   },
 ];
+
