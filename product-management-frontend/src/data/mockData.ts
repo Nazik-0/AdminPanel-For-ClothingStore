@@ -1,4 +1,5 @@
-import { Product, Order, Customer, Category, Brand, DashboardStats, ActivityLog } from '../types';
+// src/data/mockData.ts
+import { Product, Order, Customer, Category, Brand, DashboardStats, ActivityLog, SalesData, CategoryData } from '../types';
 
 export const mockProducts: Product[] = [
   {
@@ -47,9 +48,107 @@ export const mockProducts: Product[] = [
       { name: 'Dark Blue', hex: '#1E40AF' },
     ],
     stock: 8,
-    status: 'active',
+    status: 'inactive',
     createdAt: '2024-01-02T00:00:00Z',
     updatedAt: '2024-01-16T00:00:00Z',
+  },
+  {
+    id: '3',
+    name: 'Summer Red Dress',
+    description: 'Lightweight summer dress with floral pattern',
+    sku: 'DRS-003',
+    price: 65.00,
+    discount: 0,
+    images: [
+      'https://images.pexels.com/photos/985635/pexels-photo-985635.jpeg?w=400',
+    ],
+    category: 'Clothing',
+    subcategory: 'Dresses',
+    brand: 'SummerBreeze',
+    tags: ['summer', 'dress', 'floral'],
+    sizes: ['XS', 'S', 'M'],
+    colors: [
+      { name: 'Red', hex: '#EF4444' },
+      { name: 'Yellow', hex: '#FBBF24' },
+    ],
+    stock: 15,
+    status: 'active',
+    createdAt: '2024-01-10T00:00:00Z',
+    updatedAt: '2024-01-18T00:00:00Z',
+  },
+  {
+    id: '4',
+    name: 'Leather Belt',
+    description: 'Genuine leather belt with metal buckle',
+    sku: 'BLT-004',
+    price: 35.00,
+    discount: 5,
+    images: [
+      'https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?w=400',
+    ],
+    category: 'Accessories',
+    subcategory: 'Belts',
+    brand: 'LeatherCraft',
+    tags: ['leather', 'belt', 'accessory'],
+    sizes: ['S', 'M', 'L'],
+    colors: [
+      { name: 'Brown', hex: '#78350F' },
+      { name: 'Black', hex: '#000000' },
+    ],
+    stock: 0,
+    status: 'active',
+    createdAt: '2024-01-05T00:00:00Z',
+    updatedAt: '2024-01-20T00:00:00Z',
+  },
+  {
+    id: '5',
+    name: 'Running Shoes',
+    description: 'Lightweight running shoes with cushioning',
+    sku: 'SHO-005',
+    price: 120.00,
+    discount: 20,
+    images: [
+      'https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?w=400',
+    ],
+    category: 'Footwear',
+    subcategory: 'Sneakers',
+    brand: 'RunFast',
+    tags: ['running', 'shoes', 'sports'],
+    sizes: ['8', '9', '10', '11'],
+    colors: [
+      { name: 'Black', hex: '#000000' },
+      { name: 'White', hex: '#FFFFFF' },
+      { name: 'Blue', hex: '#3B82F6' },
+    ],
+    stock: 25,
+    status: 'active',
+    createdAt: '2024-01-07T00:00:00Z',
+    updatedAt: '2024-01-17T00:00:00Z',
+  },
+  {
+    id: '6',
+    name: 'Wool Beanie',
+    description: 'Warm wool beanie for cold weather',
+    sku: 'ACC-006',
+    price: 22.50,
+    discount: 0,
+    images: [
+      'https://images.pexels.com/photos/35185/hats-fedora-hat-manufacture-stack.jpg?w=400',
+    ],
+    category: 'Accessories',
+    subcategory: 'Hats',
+    brand: 'WinterWarm',
+    tags: ['winter', 'hat', 'wool'],
+    sizes: ['One Size'],
+    colors: [
+      { name: 'Gray', hex: '#6B7280' },
+      { name: 'Navy', hex: '#1E40AF' },
+      { name: 'Burgundy', hex: '#9D174D' },
+    ],
+    stock: 42,
+    status: 'inactive',
+    createdAt: '2024-01-12T00:00:00Z',
+    updatedAt: '2024-01-19T00:00:00Z',
   },
 ];
 
@@ -71,8 +170,15 @@ export const mockOrders: Order[] = [
         size: 'M',
         color: 'White',
       },
+      {
+        product: mockProducts[4],
+        quantity: 1,
+        price: 120.00,
+        size: '9',
+        color: 'Black',
+      }
     ],
-    total: 59.98,
+    total: 179.98,
     status: 'processing',
     paymentMethod: 'card',
     shippingAddress: {
@@ -84,6 +190,75 @@ export const mockOrders: Order[] = [
     },
     createdAt: '2024-01-15T10:30:00Z',
     updatedAt: '2024-01-15T14:20:00Z',
+  },
+  {
+    id: '2',
+    orderNumber: 'ORD-2024-002',
+    customer: {
+      id: '2',
+      name: 'Michael Chen',
+      email: 'michael@example.com',
+      phone: '+1-987-654-3210',
+    },
+    items: [
+      {
+        product: mockProducts[1],
+        quantity: 1,
+        price: 89.99,
+        size: 'L',
+        color: 'Light Blue',
+      }
+    ],
+    total: 89.99,
+    status: 'shipped',
+    paymentMethod: 'paypal',
+    shippingAddress: {
+      street: '456 Oak Ave',
+      city: 'Los Angeles',
+      state: 'CA',
+      zipCode: '90001',
+      country: 'USA',
+    },
+    createdAt: '2024-01-16T11:15:00Z',
+    updatedAt: '2024-01-17T09:45:00Z',
+  },
+  {
+    id: '3',
+    orderNumber: 'ORD-2024-003',
+    customer: {
+      id: '3',
+      name: 'Sarah Williams',
+      email: 'sarah@example.com',
+      phone: '+1-555-123-4567',
+    },
+    items: [
+      {
+        product: mockProducts[2],
+        quantity: 1,
+        price: 65.00,
+        size: 'S',
+        color: 'Red',
+      },
+      {
+        product: mockProducts[5],
+        quantity: 2,
+        price: 22.50,
+        size: 'One Size',
+        color: 'Gray',
+      }
+    ],
+    total: 110.00,
+    status: 'delivered',
+    paymentMethod: 'card',
+    shippingAddress: {
+      street: '789 Pine Rd',
+      city: 'Chicago',
+      state: 'IL',
+      zipCode: '60007',
+      country: 'USA',
+    },
+    createdAt: '2024-01-14T14:20:00Z',
+    updatedAt: '2024-01-18T16:30:00Z',
   },
 ];
 
@@ -106,6 +281,60 @@ export const mockCustomers: Customer[] = [
     createdAt: '2023-06-15T00:00:00Z',
     lastLogin: '2024-01-15T09:00:00Z',
   },
+  {
+    id: '2',
+    name: 'Michael Chen',
+    email: 'michael@example.com',
+    phone: '+1-987-654-3210',
+    address: {
+      street: '456 Oak Ave',
+      city: 'Los Angeles',
+      state: 'CA',
+      zipCode: '90001',
+      country: 'USA',
+    },
+    totalOrders: 8,
+    totalSpent: 875.50,
+    status: 'active',
+    createdAt: '2023-08-22T00:00:00Z',
+    lastLogin: '2024-01-16T14:30:00Z',
+  },
+  {
+    id: '3',
+    name: 'Sarah Williams',
+    email: 'sarah@example.com',
+    phone: '+1-555-123-4567',
+    address: {
+      street: '789 Pine Rd',
+      city: 'Chicago',
+      state: 'IL',
+      zipCode: '60007',
+      country: 'USA',
+    },
+    totalOrders: 5,
+    totalSpent: 420.75,
+    status: 'active',
+    createdAt: '2023-11-05T00:00:00Z',
+    lastLogin: '2024-01-14T11:20:00Z',
+  },
+  {
+    id: '4',
+    name: 'David Miller',
+    email: 'david@example.com',
+    phone: '+1-333-444-5555',
+    address: {
+      street: '321 Elm St',
+      city: 'Miami',
+      state: 'FL',
+      zipCode: '33101',
+      country: 'USA',
+    },
+    totalOrders: 3,
+    totalSpent: 275.25,
+    status: 'blocked',
+    createdAt: '2023-12-10T00:00:00Z',
+    lastLogin: '2023-12-20T16:45:00Z',
+  },
 ];
 
 export const mockBrands: Brand[] = [
@@ -117,7 +346,7 @@ export const mockBrands: Brand[] = [
     status: 'active',
     createdAt: '2024-01-01T00:00:00Z',
     lastUpdated: '2024-06-15T14:30:00Z',
-    productsCount: 1
+    productsCount: 2
   },
   {
     id: '2',
@@ -139,6 +368,26 @@ export const mockBrands: Brand[] = [
     lastUpdated: '2024-05-22T16:45:00Z',
     productsCount: 0
   },
+  {
+    id: '4',
+    name: 'SummerBreeze',
+    description: 'Lightweight summer clothing',
+    logo: 'https://images.pexels.com/photos/1021693/pexels-photo-1021693.jpeg?w=400',
+    status: 'active',
+    createdAt: '2024-01-08T00:00:00Z',
+    lastUpdated: '2024-06-12T11:20:00Z',
+    productsCount: 1
+  },
+  {
+    id: '5',
+    name: 'RunFast',
+    description: 'Performance athletic wear',
+    logo: 'https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?w=400',
+    status: 'active',
+    createdAt: '2024-01-03T00:00:00Z',
+    lastUpdated: '2024-06-18T08:45:00Z',
+    productsCount: 1
+  },
 ];
 
 export const brandStats = {
@@ -150,6 +399,7 @@ export const brandStats = {
     { name: 'DenimCo', productCount: 25 }
   ]
 };
+
 
 export const mockDashboardStats: DashboardStats = {
   todaySales: 2845.67,
@@ -175,9 +425,23 @@ export const mockActivityLogs: ActivityLog[] = [
     details: 'Updated stock for SKU: JKT-002 to 8 units',
     timestamp: '2024-01-15T13:45:00Z',
   },
+  {
+    id: '3',
+    user: 'Mike Editor',
+    action: 'Updated Order Status',
+    details: 'Changed status of ORD-2024-002 to "shipped"',
+    timestamp: '2024-01-17T09:45:00Z',
+  },
+  {
+    id: '4',
+    user: 'Emma Support',
+    action: 'Processed Return',
+    details: 'Processed return for order ORD-2024-003',
+    timestamp: '2024-01-18T11:20:00Z',
+  },
 ];
 
-export const mockSalesData = [
+export const mockSalesData: SalesData[] = [
   { name: 'Mon', sales: 1200 },
   { name: 'Tue', sales: 1900 },
   { name: 'Wed', sales: 1700 },
@@ -187,7 +451,7 @@ export const mockSalesData = [
   { name: 'Sun', sales: 2400 },
 ];
 
-export const mockCategoryData = [
+export const mockCategoryData: CategoryData[] = [
   { name: 'T-Shirts', value: 35, color: '#3B82F6' },
   { name: 'Jeans', value: 25, color: '#10B981' },
   { name: 'Jackets', value: 20, color: '#F97316' },
@@ -195,7 +459,6 @@ export const mockCategoryData = [
   { name: 'Accessories', value: 5, color: '#EF4444' },
 ];
 
-// Add to mockData.ts
 export const mockCategories: Category[] = [
   {
     id: 'cat1',
@@ -255,4 +518,3 @@ export const mockCategories: Category[] = [
     updatedAt: '2023-04-22',
   },
 ];
-

@@ -13,7 +13,8 @@ import {
   CheckCircle,
   XCircle,
   Download,
-  Sliders
+  Sliders,
+  X
 } from 'lucide-react';
 import { mockBrands, brandStats } from '../data/mockData';
 import { format } from 'date-fns';

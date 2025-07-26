@@ -28,6 +28,7 @@ export interface Product {
   updatedAt: string;
 }
 
+
 export interface Order {
   id: string;
   orderNumber: string;
@@ -35,7 +36,7 @@ export interface Order {
     id: string;
     name: string;
     email: string;
-    phone: string;
+    phone: string| 'draft' | 'archived';
   };
   items: Array<{
     product: Product;
@@ -123,4 +124,16 @@ export interface Category {
   metaDescription?: string;
   createdAt: string;
   updatedAt: string;
+}
+
+// Add these interfaces to your types file
+export interface SalesData {
+  name: string;
+  sales: number;
+}
+
+export interface CategoryData {
+  name: string;
+  value: number;
+  color: string;
 }
