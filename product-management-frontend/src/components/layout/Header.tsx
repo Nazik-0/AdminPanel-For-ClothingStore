@@ -3,7 +3,7 @@ import { Menu, Bell, Search, Sun, Moon, LogOut, User } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useTheme } from '../../contexts/ThemeContext';
 import { Button } from '../ui/Button';
-import { clsx } from 'clsx';
+//import { clsx } from 'clsx';
 
 interface HeaderProps {
   onMenuClick: () => void;

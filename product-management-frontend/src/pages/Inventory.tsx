@@ -5,7 +5,7 @@ import { Input } from '../components/ui/Input';
 import { Badge } from '../components/ui/Badge';
 import { 
   Search, 
-  Filter, 
+  //Filter, 
   Plus,
   Box,
   AlertCircle,
@@ -198,13 +198,13 @@ export const Inventory: React.FC = () => {
                   <tr key={product.id} className="border-b border-gray-100 dark:border-gray-800">
                     <td className="p-4">
                       <div className="flex items-center">
-                        {product.image && (
-                          <img 
-                            src={product.image} 
-                            alt={product.name} 
-                            className="w-10 h-10 rounded-md object-cover mr-3"
-                          />
-                        )}
+                        {product.images && product.images.length > 0 && (
+                            <img 
+                                src={product.images[0]}  // Use first image from array
+                                alt={product.name} 
+                                className="w-10 h-10 rounded-md object-cover mr-3"
+                            />
+                            )}
                         <div>
                           <p className="font-medium text-gray-900 dark:text-white">
                             {product.name}
@@ -231,16 +231,17 @@ export const Inventory: React.FC = () => {
                       </p>
                     </td>
                     <td className="p-4">
-                      <Badge 
+                     <Badge 
                         variant={
-                          product.status === 'active' 
+                            product.status === 'active' 
                             ? 'success' 
-                            : product.status === 'draft' 
-                              ? 'warning' 
-                              : 'default'
+                            : product.status === 'draft'    // Use 'draft' instead of 'inactive'
+                                ? 'warning' 
+                                : 'default'                   // For 'archived'
+                                /* : 'secondary'  // Changed to 'secondary' for archived */
                         } 
                         className="capitalize"
-                      >
+                        >
                         {product.status}
                       </Badge>
                     </td>

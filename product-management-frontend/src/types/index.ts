@@ -23,7 +23,7 @@ export interface Product {
   sizes: string[];
   colors: Array<{ name: string; hex: string }>;
   stock: number;
-  status: 'active' | 'inactive';
+  status: 'active' | 'inactive'|'draft'|'archived';
   createdAt: string;
   updatedAt: string;
 }
