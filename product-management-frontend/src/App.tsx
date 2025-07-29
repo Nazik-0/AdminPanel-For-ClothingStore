@@ -13,6 +13,7 @@ import Categories from './pages/Categories';
 import Brands from './pages/Brands';
 import { Inventory } from './pages/Inventory';
 import { Reports } from './pages/Reports';
+import { ContentManagement } from './pages/ContentManagement';
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { user, isLoading } = useAuth();
@@ -53,8 +54,8 @@ const AppRoutes: React.FC = () => {
         <Route path="brands" element={<Brands />} />
         <Route path="inventory" element={<Inventory/>} />
         <Route path="reports" element={<Reports/>} />
-                {/* Placeholder routes for other pages */}
-        <Route path="content" element={<div className="p-6 text-center text-gray-500">Content management coming soon...</div>} />
+        <Route path="content" element={<ContentManagement/>} />
+        {/* Placeholder routes for other pages */}
         <Route path="activity" element={<div className="p-6 text-center text-gray-500">Activity log coming soon...</div>} />
       </Route>
     </Routes>

@@ -1,6 +1,13 @@
 // src/data/mockData.ts
 import { Product, Order, Customer, Category, Brand, DashboardStats, ActivityLog, SalesData, CategoryData } from '../types';
 
+import { 
+  // ... existing imports ...
+  File, 
+  FileText, 
+  Layout, 
+  Megaphone} from 'lucide-react';
+
 export const mockProducts: Product[] = [
   {
     id: '1',
@@ -408,6 +415,8 @@ export const mockDashboardStats: DashboardStats = {
   lowStockItems: 23,
   pendingOrders: 18,
   totalRevenue: 125890.45,
+  totalContent: 42,        
+  draftContent: 5,     
 };
 
 export const mockActivityLogs: ActivityLog[] = [
@@ -518,3 +527,123 @@ export const mockCategories: Category[] = [
     updatedAt: '2023-04-22',
   },
 ];
+
+export interface ContentItem {
+  id: string;
+  title: string;
+  type: 'page' | 'post' | 'banner' | 'campaign';
+  author: string;
+  lastUpdated: string; // ISO string
+  status: 'published' | 'draft' | 'archived';
+  views: number;
+}
+
+export interface ContentStat {
+  title: string;
+  value: number;
+  icon: React.ComponentType<any>;
+  color: string;
+}
+
+export const mockContentItems: ContentItem[] = [
+  {
+    id: '1',
+    title: 'Summer Collection Launch',
+    type: 'page',
+    author: 'Emma Johnson',
+    lastUpdated: '2024-06-15T14:30:00Z',
+    status: 'published',
+    views: 1242,
+  },
+  {
+    id: '2',
+    title: 'How to Style Denim',
+    type: 'post',
+    author: 'Michael Chen',
+    lastUpdated: '2024-06-10T09:15:00Z',
+    status: 'published',
+    views: 856,
+  },
+  {
+    id: '3',
+    title: 'Homepage Banner',
+    type: 'banner',
+    author: 'Sarah Williams',
+    lastUpdated: '2024-06-18T11:20:00Z',
+    status: 'draft',
+    views: 0,
+  },
+  {
+    id: '4',
+    title: 'Sustainable Fashion Guide',
+    type: 'post',
+    author: 'David Miller',
+    lastUpdated: '2024-05-22T16:45:00Z',
+    status: 'published',
+    views: 2103,
+  },
+  {
+    id: '5',
+    title: 'About Our Brand',
+    type: 'page',
+    author: 'Emma Johnson',
+    lastUpdated: '2024-04-10T08:30:00Z',
+    status: 'published',
+    views: 542,
+  },
+  {
+    id: '6',
+    title: 'Holiday Sale Promo',
+    type: 'banner',
+    author: 'Michael Chen',
+    lastUpdated: '2024-05-30T14:20:00Z',
+    status: 'archived',
+    views: 3210,
+  },
+  {
+    id: '7',
+    title: 'New Arrivals Campaign',
+    type: 'campaign',
+    author: 'Sarah Williams',
+    lastUpdated: '2024-06-05T09:45:00Z',
+    status: 'published',
+    views: 1895,
+  },
+  {
+    id: '8',
+    title: 'Size Guide',
+    type: 'page',
+    author: 'David Miller',
+    lastUpdated: '2024-03-18T11:10:00Z',
+    status: 'published',
+    views: 876,
+  },
+];
+
+export const contentStats: ContentStat[] = [
+  {
+    title: 'Total Pages',
+    value: 12,
+    icon: File,
+    color: 'text-blue-600',
+  },
+  {
+    title: 'Blog Posts',
+    value: 24,
+    icon: FileText,
+    color: 'text-green-600',
+  },
+  {
+    title: 'Active Banners',
+    value: 3,
+    icon: Layout,
+    color: 'text-purple-600',
+  },
+  {
+    title: 'Marketing Campaigns',
+    value: 5,
+    icon: Megaphone,
+    color: 'text-orange-600',
+  },
+];
+

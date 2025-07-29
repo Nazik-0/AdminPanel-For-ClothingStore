@@ -97,6 +97,8 @@ export interface DashboardStats {
   lowStockItems: number;
   pendingOrders: number;
   totalRevenue: number;
+  totalContent: number;
+  draftContent: number;
 }
 
 export interface ActivityLog {
@@ -136,4 +138,35 @@ export interface CategoryData {
   name: string;
   value: number;
   color: string;
+}
+
+import { LucideIcon } from 'lucide-react';
+
+export interface ContentItem {
+  id: string;
+  title: string;
+  type: 'page' | 'post' | 'banner' | 'campaign';
+  author: string;
+  lastUpdated: string;
+  status: 'published' | 'draft' | 'archived';
+  views: number;
+}
+
+export interface ContentStat {
+  title: string;
+  value: number;
+  icon: string;
+  color: string;
+}
+
+export interface DashboardStats {
+  // ... existing properties ...
+  todaySales: number;
+  totalOrders: number;
+  totalCustomers: number;
+  lowStockItems: number;
+  pendingOrders: number;
+  totalRevenue: number;
+  totalContent: number;
+  draftContent: number;
 }
