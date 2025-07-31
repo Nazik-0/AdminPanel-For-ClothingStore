@@ -545,7 +545,7 @@ export interface ContentStat {
   color: string;
 }
 
-export const mockContentItems: ContentItem[] = [
+export const mockContentItems = [
   {
     id: '1',
     title: 'Summer Collection Launch',
@@ -600,49 +600,31 @@ export const mockContentItems: ContentItem[] = [
     status: 'archived',
     views: 3210,
   },
-  {
-    id: '7',
-    title: 'New Arrivals Campaign',
-    type: 'campaign',
-    author: 'Sarah Williams',
-    lastUpdated: '2024-06-05T09:45:00Z',
-    status: 'published',
-    views: 1895,
-  },
-  {
-    id: '8',
-    title: 'Size Guide',
-    type: 'page',
-    author: 'David Miller',
-    lastUpdated: '2024-03-18T11:10:00Z',
-    status: 'published',
-    views: 876,
-  },
 ];
 
-export const contentStats: ContentStat[] = [
+export const contentStats = [
   {
     title: 'Total Pages',
     value: 12,
-    icon: File,
+    iconName: 'File',
     color: 'text-blue-600',
   },
   {
     title: 'Blog Posts',
     value: 24,
-    icon: FileText,
+    iconName: 'FileText',
     color: 'text-green-600',
   },
   {
     title: 'Active Banners',
     value: 3,
-    icon: Layout,
+    iconName: 'Layout',
     color: 'text-purple-600',
   },
   {
     title: 'Marketing Campaigns',
     value: 5,
-    icon: Megaphone,
+    iconName: 'Megaphone',
     color: 'text-orange-600',
   },
 ];

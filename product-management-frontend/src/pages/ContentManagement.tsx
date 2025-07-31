@@ -12,18 +12,18 @@ import {
   Edit, 
   Trash2, 
   Eye,
-  FileText,
-  File,
-  Layout,
-  Megaphone,
-  Calendar,
+  FileText as FileTextIcon,
+  File as FileIcon,
+  Layout as LayoutIcon,
+  Megaphone as MegaphoneIcon,
   CheckCircle,
   Clock,
   Archive
 } from 'lucide-react';
 import * as Icons from 'lucide-react';
+import { mockContentItems, contentStats } from '../data/mockData';
 
-
+/*
 // Mock data - would normally import from '../data/mockData'
 const mockContentItems = [
   {
@@ -107,7 +107,7 @@ const contentStats = [
     icon: Megaphone,
     color: 'text-orange-600',
   },
-];
+]; */
 
 export const ContentManagement: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -135,13 +135,27 @@ export const ContentManagement: React.FC = () => {
 
   const getTypeConfig = (type: string) => {
     const configs = {
-      page: { icon: File, color: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100' },
-      post: { icon: FileText, color: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100' },
-      banner: { icon: Layout, color: 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100' },
-      campaign: { icon: Megaphone, color: 'bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-100' },
+      page: { 
+        icon: FileIcon, 
+        color: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100' 
+      },
+      post: { 
+        icon: FileTextIcon, 
+        color: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100' 
+      },
+      banner: { 
+        icon: LayoutIcon, 
+        color: 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100' 
+      },
+      campaign: { 
+        icon: MegaphoneIcon, 
+        color: 'bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-100' 
+      },
     };
+    
     return configs[type as keyof typeof configs] || configs.page;
   };
+
 
   return (
     <div className="space-y-6">
@@ -220,29 +234,30 @@ export const ContentManagement: React.FC = () => {
 
       {/* Content Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-       {contentStats.map((stat, index) => {
-        // Get the icon component by name
-        const IconComponent = Icons[stat.iconName as keyof typeof Icons];
-        
-        return (
+        {contentStats.map((stat, index) => {
+          // Get the icon component by name from the Icons object
+          const IconComponent = Icons[stat.iconName as keyof typeof Icons] as 
+            React.ComponentType<React.SVGProps<SVGSVGElement>>;
+          
+          return (
             <Card key={index}>
-            <div className="p-4">
+              <div className="p-4">
                 <div className="flex items-center">
-                <div className={`p-3 rounded-lg ${stat.color.replace('text', 'bg')} mr-4`}>
+                  <div className={`p-3 rounded-lg ${stat.color.replace('text', 'bg')} mr-4`}>
                     {IconComponent && (
-                    <IconComponent className={`w-6 h-6 ${stat.color}`} />
+                      <IconComponent className={`w-6 h-6 ${stat.color}`} />
                     )}
-                </div>
-                <div>
+                  </div>
+                  <div>
                     <p className="text-sm text-gray-600 dark:text-gray-400">{stat.title}</p>
                     <p className="text-xl font-bold text-gray-900 dark:text-white">
-                    {stat.value}
+                      {stat.value}
                     </p>
+                  </div>
                 </div>
-                </div>
-            </div>
+              </div>
             </Card>
-        );
+          );
         })}
       </div>
 
@@ -250,13 +265,18 @@ export const ContentManagement: React.FC = () => {
       <Card>
         <div className="p-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <Input
-              placeholder="Search content..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              leftIcon={<Search className="w-4 h-4" />}
-            />
+            {/* Search Input - now properly wrapped with label */}
+            <div>
+              <label className="block text-sm font-medium mb-2">Search</label>
+              <Input
+                placeholder="Search content..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                leftIcon={<Search className="w-4 h-4" />}
+              />
+            </div>
             
+            {/* Content Type Filter */}
             <div>
               <label className="block text-sm font-medium mb-2">Content Type</label>
               <select
@@ -272,6 +292,7 @@ export const ContentManagement: React.FC = () => {
               </select>
             </div>
             
+            {/* Status Filter */}
             <div>
               <label className="block text-sm font-medium mb-2">Status</label>
               <select
@@ -286,7 +307,8 @@ export const ContentManagement: React.FC = () => {
               </select>
             </div>
             
-            <div className="flex items-end">
+            {/* More Filters Button */}
+            <div className="flex flex-col justify-end">
               <Button variant="outline" className="w-full">
                 <Filter className="w-4 h-4 mr-2" />
                 More Filters

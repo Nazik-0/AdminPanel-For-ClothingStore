@@ -147,7 +147,7 @@ export interface ContentItem {
   title: string;
   type: 'page' | 'post' | 'banner' | 'campaign';
   author: string;
-  lastUpdated: string;
+  lastUpdated: string; // ISO string
   status: 'published' | 'draft' | 'archived';
   views: number;
 }
@@ -155,7 +155,7 @@ export interface ContentItem {
 export interface ContentStat {
   title: string;
   value: number;
-  icon: string;
+  iconName: string;
   color: string;
 }
 
