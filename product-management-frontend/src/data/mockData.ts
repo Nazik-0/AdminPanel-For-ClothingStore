@@ -426,28 +426,64 @@ export const mockActivityLogs: ActivityLog[] = [
     action: 'Created Product',
     details: 'Added new product "Classic Cotton T-Shirt"',
     timestamp: '2024-01-15T14:30:00Z',
+    ipAddress: '192.168.1.1'
   },
   {
     id: '2',
     user: 'Sarah Manager',
     action: 'Updated Stock',
-    details: 'Updated stock for SKU: JKT-002 to 8 units',
+    details: 'Updated stock for SKU: TSH-001 to 150 units',
     timestamp: '2024-01-15T13:45:00Z',
+    ipAddress: '192.168.1.5'
   },
   {
     id: '3',
     user: 'Mike Editor',
-    action: 'Updated Order Status',
+    action: 'Updated Order',
     details: 'Changed status of ORD-2024-002 to "shipped"',
     timestamp: '2024-01-17T09:45:00Z',
+    ipAddress: '192.168.1.3'
   },
   {
     id: '4',
     user: 'Emma Support',
-    action: 'Processed Return',
-    details: 'Processed return for order ORD-2024-003',
+    action: 'Created Order',
+    details: 'Processed new order ORD-2024-005 for $89.99',
     timestamp: '2024-01-18T11:20:00Z',
+    ipAddress: '192.168.1.7'
   },
+  {
+    id: '5',
+    user: 'John Admin',
+    action: 'Deleted Product',
+    details: 'Removed product "Winter Jacket" from inventory',
+    timestamp: '2024-01-16T16:30:00Z',
+    ipAddress: '192.168.1.1'
+  },
+  {
+    id: '6',
+    user: 'Alex Developer',
+    action: 'Updated Product',
+    details: 'Modified pricing for "Denim Jacket" to $89.99',
+    timestamp: '2024-01-14T10:15:00Z',
+    ipAddress: '192.168.1.10'
+  },
+  {
+    id: '7',
+    user: 'Sarah Manager',
+    action: 'Updated Stock',
+    details: 'Adjusted stock for SKU: SHO-005 to 25 units',
+    timestamp: '2024-01-19T14:20:00Z',
+    ipAddress: '192.168.1.5'
+  },
+  {
+    id: '8',
+    user: 'Mike Editor',
+    action: 'Created Product',
+    details: 'Added new product "Summer Red Dress"',
+    timestamp: '2024-01-10T08:30:00Z',
+    ipAddress: '192.168.1.3'
+  }
 ];
 
 export const mockSalesData: SalesData[] = [
@@ -628,4 +664,5 @@ export const contentStats = [
     color: 'text-orange-600',
   },
 ];
+
 

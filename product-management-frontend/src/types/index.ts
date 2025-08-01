@@ -107,7 +107,9 @@ export interface ActivityLog {
   action: string;
   details: string;
   timestamp: string;
+  ipAddress?: string;
 }
+
 
 // Add to existing types
 export type CategoryStatus = 'active' | 'inactive';
@@ -170,3 +172,5 @@ export interface DashboardStats {
   totalContent: number;
   draftContent: number;
 }
+
+
