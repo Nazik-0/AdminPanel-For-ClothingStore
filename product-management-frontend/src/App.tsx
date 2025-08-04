@@ -14,7 +14,7 @@ import Brands from './pages/Brands';
 import { Inventory } from './pages/Inventory';
 import { Reports } from './pages/Reports';
 import { ContentManagement } from './pages/ContentManagement';
-import { ActivityLog } from './pages/ActivityLog';
+import ActivityLog from './pages/ActivityLog';
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { user, isLoading } = useAuth();

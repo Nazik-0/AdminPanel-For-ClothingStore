@@ -1,13 +1,6 @@
 // src/data/mockData.ts
 import { Product, Order, Customer, Category, Brand, DashboardStats, ActivityLog, SalesData, CategoryData } from '../types';
 
-import { 
-  // ... existing imports ...
-  File, 
-  FileText, 
-  Layout, 
-  Megaphone} from 'lucide-react';
-
 export const mockProducts: Product[] = [
   {
     id: '1',
@@ -494,6 +487,7 @@ export const mockSalesData: SalesData[] = [
   { name: 'Fri', sales: 2800 },
   { name: 'Sat', sales: 3200 },
   { name: 'Sun', sales: 2400 },
+  
 ];
 
 export const mockCategoryData: CategoryData[] = [

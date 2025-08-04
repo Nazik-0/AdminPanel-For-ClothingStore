@@ -4,8 +4,7 @@ import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import { Badge } from '../components/ui/Badge';
 import { 
-  Search, 
-  Filter, 
+  Search,  
   RefreshCw,
   Download,
   User,
@@ -19,26 +18,26 @@ import {
 } from 'lucide-react';
 import { mockActivityLogs } from '../data/mockData';
 import { format, parseISO } from 'date-fns';
-import { ActivityLog } from '../types';
+import { ActivityLog as ActivityLogType } from '../types';
 
-export const ActivityLogComponent: React.FC = () => {
+const ActivityLog: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedAction, setSelectedAction] = useState('all');
   const [selectedUser, setSelectedUser] = useState('all');
   const [dateRange, setDateRange] = useState({ start: '', end: '' });
   const [autoRefresh, setAutoRefresh] = useState(false);
-  const [selectedLog, setSelectedLog] = useState<ActivityLog | null>(null);
-  const [logs, setLogs] = useState<ActivityLog[]>(mockActivityLogs);
+  const [selectedLog, setSelectedLog] = useState<ActivityLogType | null>(null);
+  const [logs, setLogs] = useState<ActivityLogType[]>(mockActivityLogs);
 
   // Toggle auto refresh
   useEffect(() => {
-    let interval: NodeJS.Timeout;
+    let interval: number;
     
     if (autoRefresh) {
-      interval = setInterval(() => {
+      interval = window.setInterval(() => {
         // In a real app, this would fetch new data from API
         // For now, we'll just add a mock log to simulate new activity
-        const newLog: ActivityLog = {
+        const newLog: ActivityLogType = {
           id: `log-${Date.now()}`,
           user: 'System',
           action: 'Auto Refresh',
@@ -51,8 +50,8 @@ export const ActivityLogComponent: React.FC = () => {
       }, 30000); // Refresh every 30 seconds
     }
     
-    return () => clearInterval(interval);
-  }, [autoRefresh]);
+      return () => clearInterval(interval);
+    }, [autoRefresh]);
 
   // Get unique users for filter dropdown
   const uniqueUsers = Array.from(new Set(logs.map(log => log.user)));
@@ -158,7 +157,7 @@ export const ActivityLogComponent: React.FC = () => {
         </div>
         <div className="flex space-x-3">
           <Button 
-            variant={autoRefresh ? 'success' : 'outline'}
+           variant={autoRefresh ? 'primary' : 'outline'}
             onClick={() => setAutoRefresh(!autoRefresh)}
           >
             <RefreshCw className={`w-4 h-4 mr-2 ${autoRefresh ? 'animate-spin' : ''}`} />
@@ -391,3 +390,5 @@ export const ActivityLogComponent: React.FC = () => {
     </div>
   );
 };
+
+export default ActivityLog;
